@@ -1,0 +1,126 @@
+<div class="splashScreen">
+  <div class="col-12">
+    <div class="text-center">
+      <h1>Even Financial Github Repository Search</h1>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="formCentral">
+      <form [formGroup]="searchForm" (ngSubmit)="searchRepo()">
+        <div class="col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center validationStyle">
+          <div class="form-group inputLabel" [ngClass]="{'has-error': (searchForm.get('searchString').touched || 
+          searchForm.get('searchString').dirty) &&
+          !searchForm.get('searchString').valid }">
+            <label for="searchString" class="control-label inputLabel">Text</label>
+            <input type="text" value='' formControlName="searchString" class="form-control inputStyle" id="name"
+              placeholder="Search">
+          </div>
+          <span class="help-block" *ngIf="(searchForm.get('searchString').touched || 
+          searchForm.get('searchString').dirty) && 
+          searchForm.get('searchString').errors">
+            <span *ngIf="searchForm.get('searchString').errors.required">
+              Please enter the search Text.
+            </span>
+            <span *ngIf="searchForm.get('searchString').errors.pattern">
+              Please avoid special characters.
+            </span>
+          </span>
+        </div>
+        <div class="col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center validationStyle">
+          <div class="form-group inputLabel" [ngClass]="{'has-error': (searchForm.get('stars').touched || 
+          searchForm.get('stars').dirty) &&
+          !searchForm.get('stars').valid }">
+            <label for="stars" class="control-label inputLabel">Stars</label>
+            <input type="text" value='' formControlName="stars" class="form-control inputStyle" id="name"
+              placeholder="No.Of Stars">
+          </div>
+          <span class="help-block" *ngIf="(searchForm.get('stars').touched || 
+          searchForm.get('stars').dirty) && 
+          searchForm.get('stars').errors">
+            <span *ngIf="searchForm.get('stars').errors.pattern">
+              Please enter numbers with < or>.
+            </span>
+          </span>
+        </div>
+        <div class="col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center validationStyle">
+          <div class="form-group inputLabel">
+            <label for="license" class="control-label inputLabel">License</label>
+            <select value='' formControlName="license" class="form-control inputStyle" id="name"
+              placeholder="Select License Type">
+              <option value="mit">MIT</option>
+              <option value="isc">ISC</option>
+              <option value="apache-2.0">Apache</option>
+              <option value="gpl">GPL</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center validationStyle">
+          <div class="form-group inputLabel">
+            <input type="checkbox" value='' formControlName="fork" class="inputStyleCheck" id="name"
+              placeholder="Search">
+            <label for="fork" class="">Fork</label>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center submitButton">
+          <button type="submit" class="btn btn-primary" [disabled]="!searchForm.valid"> Search </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-12 centralSplash">
+    <div class="resultsTitle" *ngIf="!searchFalse">
+      <p>Please enter query and click SEARCH button above, results appear here.</p>
+    </div>
+    <div class="resultsTitle" *ngIf="searchFalse">
+      <h4>Search Results : {{totalResults}}</h4>
+    </div>
+    <div class="col-12 tableResults">
+      <div class="table-content" style="width: 97%;">
+        <table class="table table-fixed table-striped table-list" id="myTable"
+          style="table-layout: fixed; margin-bottom:0px;">
+          <div class="scroll"> 
+            <tbody>
+            <tr *ngFor="let repo of repositories">
+              <td class="td-scroll" style="width: 90%;">
+                <div>
+                  <a [href]="repo.url" target="_blank">{{repo.name}}</a>
+                </div>
+                <div>
+                  {{repo.description}}
+                </div>
+              </td>
+              <td class="td-scroll" style="width: 3%;">
+                <div>
+                  <h5>
+                    Stars
+                  </h5>
+                </div>
+                <div>
+                  {{repo.stars}}
+                </div>
+              </td>
+              <td class="td-scroll" style="width: 7%;">
+                <div>
+                  <h5>
+                    License
+                  </h5>
+                </div>
+                <div>
+                  {{repo.license}}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer col-xs-12">
+  <div>
+    <div class="footerText">
+      &copy; 2017 Even Financial, Inc - CONFIDENTIAL
+    </div>
+  </div>
+</div>

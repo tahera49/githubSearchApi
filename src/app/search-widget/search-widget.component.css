@@ -1,0 +1,84 @@
+.inputStyle {
+    width: 60%;
+    margin-left: 10%;
+}
+
+.inputLabel {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.formCentral {
+    margin: 40px 20%;
+}
+
+.inputStyleCheck {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.submitButton {
+    border-bottom: solid 1px #5C86C2;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.validationStyle {
+    height: 100px;
+}
+
+.footer {
+    background: #5C86C2;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.centralSplash {
+    height: 480px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    color: grey;
+}
+
+.resultsTitle {
+    font-weight: 300;
+}
+
+.scroll {
+    min-height: 280px;
+    height: 400px !important;
+    overflow-y: scroll;
+    margin-bottom: 0px
+}
+
+.td-scroll {
+    padding: 5px 20px;
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#myTable td {
+    text-align: left;
+    padding: 10px;
+    font-size: 12px;
+}
+
+#myTable tr {
+    border: solid 0.5px grey;
+    margin: 5px;
+}
+
+#myTable tbody {
+    display: contents;
+}
+
+.table-content {
+    margin: 20px;
+}
